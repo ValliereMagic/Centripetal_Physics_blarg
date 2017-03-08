@@ -26,7 +26,7 @@ class OrbitalRadius {
         if (period && !mass && !aC && !velocity) {
             return periodOnly(Double.valueOf(period))
         } else if (period && velocity && !mass && !aC) {
-            periodAndVelocity(Double.valueOf(period), Double.valueOf(velocity))
+            return periodAndVelocity(Double.valueOf(period), Double.valueOf(velocity))
         }
     }
 
