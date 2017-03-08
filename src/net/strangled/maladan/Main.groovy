@@ -4,13 +4,22 @@ package net.strangled.maladan
  * MaladaN (R)
  */
 class Main {
+    static gravityConstant = 6.67 * 10**-11
+    static cMassOfEarth = 5.96 * 10**24
+
     static void main(String[] args) {
         if (args[0] == '--help' || args[0] == '-h') {
             Documentation.printInstructions()
         } else if (args[0] == '--orbital-radius' || args[0] == '-or') {
-            LinkedList<String> data = args
-            data.remove(0)
-            println(OrbitalRadius.execute(data))
+            println(OrbitalRadius.execute(formatData(args)))
+        } else if (args[0] == '--centripetal-acceleration' || args[0] == '-cacc') {
+            println(CentralMass.execute(formatData(args)))
         }
+    }
+
+    static LinkedList<String> formatData(String[] args) {
+        LinkedList<String> data = args
+        data.remove(0)
+        return data
     }
 }
