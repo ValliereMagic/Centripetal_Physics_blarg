@@ -13,6 +13,7 @@ class Documentation {
                 "       To specify mass use -m (in kilograms)\n" +
                 "       To specify period use -p (in seconds)\n" +
                 "       To specify centripetal acceleration use -cacc\n" +
+                "       To specify frequency use -fr\n" +
                 "       To specify velocity use -v\n" +
                 "================================================================================\n" +
                 "   To calculate centripetal acceleration use --centripetal-acceleration or -cacc \n" +
