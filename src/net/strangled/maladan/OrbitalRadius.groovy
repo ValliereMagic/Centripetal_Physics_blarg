@@ -40,27 +40,27 @@ class OrbitalRadius {
     }
 
     static periodOnly(double period) {
-        println('Assuming earth as object being orbited')
+        earthAssumption()
         return answerFormatter(Math.cbrt((gravityConstant * massOfEarth * ((period)**2) / (4 * (Math.pow(Math.PI, 2))))))
     }
     static periodAndVelocity(double period, double velocity) {
         return answerFormatter(velocity * period) / (2 * (Math.PI))
     }
-
     static frequencyAndVelocity(double frequency, double velocity) {
         return answerFormatter(velocity * (1 / frequency) / (2 * (Math.PI)))
     }
-
     static aCAndVelocity(double aC, double velocity) {
         return answerFormatter((velocity**2 / aC))
     }
-
     static velocityOnly(double velocity) {
-        println('Assuming earth as object being orbited')
+        earthAssumption()
         return answerFormatter(Math.sqrt((gravityConstant * massOfEarth) / (velocity)**2))
     }
 
     static answerFormatter(double answer) {
         return "The orbital radius is: " + answer + " meters."
+    }
+    static earthAssumption() {
+        println('Assuming earth as object being orbited')
     }
 }
