@@ -16,6 +16,8 @@ class Documentation {
                 "   To get Help using the program: use --help or -h \n" +
                 "===========================================================\n" +
                 "   To calculate orbital radius use --orbital-radius, or -or \n" +
+                "   Note: when only velocity or only period are used, the mass of\n" +
+                "   earth will be assumed for the central object's mass.\n" +
                 "       To specify the central object's mass use -cm \n" +
                 "       To specify period use -p \n" +
                 "       To specify centripetal acceleration use -cacc\n" +
@@ -25,7 +27,7 @@ class Documentation {
                 "   To calculate centripetal acceleration use --centripetal-acceleration or -cacc \n" +
                 "       \n" +
                 "=====================================================================================\n" +
-                "   To calculate the mass of an object being orbited, use --calc-mass-central or -cmce \n" +
+                "   To calculate the mass of an object being orbited, use --calc-mass-central or -cMass \n" +
                 "       \n")
     }
 }

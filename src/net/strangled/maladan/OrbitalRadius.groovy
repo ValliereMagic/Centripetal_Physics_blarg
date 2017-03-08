@@ -4,9 +4,6 @@ package net.strangled.maladan
  * MaladaN(R)
  */
 class OrbitalRadius {
-    static gravityConstant = 6.67 * 10**-11
-    static cMassOfEarth = 5.96 * 10**24
-
     static execute(LinkedList<String> info) {
         def cMass = null
         def period = null
@@ -48,7 +45,7 @@ class OrbitalRadius {
 
     static periodOnly(double period) {
         earthAssumption()
-        return answerFormatter(Math.cbrt((gravityConstant * cMassOfEarth * ((period)**2) / (4 * (Math.pow(Math.PI, 2))))))
+        return answerFormatter(Math.cbrt((Main.gravityConstant * Main.cMassOfEarth * ((period)**2) / (4 * (Math.pow(Math.PI, 2))))))
     }
     static periodAndVelocity(double period, double velocity) {
         return answerFormatter(velocity * period) / (2 * (Math.PI))
@@ -61,13 +58,13 @@ class OrbitalRadius {
     }
     static velocityOnly(double velocity) {
         earthAssumption()
-        return answerFormatter(Math.sqrt((gravityConstant * cMassOfEarth) / (velocity)**2))
+        return answerFormatter(Math.sqrt((Main.gravityConstant * Main.cMassOfEarth) / (velocity)**2))
     }
     static velocityAndCentralMass(double velocity, double cMass) {
-        return answerFormatter(Math.sqrt((gravityConstant * cMass) / (velocity)**2))
+        return answerFormatter(Math.sqrt((Main.gravityConstant * cMass) / (velocity)**2))
     }
     static periodAndCentralMass(double period, double cMass) {
-        return answerFormatter(Math.cbrt((gravityConstant * cMass * ((period)**2) / (4 * (Math.pow(Math.PI, 2))))))
+        return answerFormatter(Math.cbrt((Main.gravityConstant * cMass * ((period)**2) / (4 * (Math.pow(Math.PI, 2))))))
     }
 
     static answerFormatter(double answer) {
