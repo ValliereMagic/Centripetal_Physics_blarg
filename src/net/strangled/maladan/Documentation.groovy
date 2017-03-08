@@ -20,5 +20,6 @@ class Documentation {
                 "=====================================================================================\n" +
                 "   To calculate the mass of an object being orbited, use --calc-mass-central or -cmce \n" +
                 "       \n")
+        println("This is a test")
     }
 }
