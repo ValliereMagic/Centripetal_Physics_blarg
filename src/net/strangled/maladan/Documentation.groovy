@@ -25,7 +25,8 @@ class Documentation {
                 "       To specify velocity use -v\n" +
                 "================================================================================\n" +
                 "   To calculate centripetal acceleration use --centripetal-acceleration or -cacc \n" +
-                "       \n" +
+                "       To specify velocity use -v" +
+                "       To specify orbital radius \n" +
                 "=====================================================================================\n" +
                 "   To calculate the mass of an object being orbited, use --calc-mass-central or -cMass \n" +
                 "       To specify velocity use -v\n" +
