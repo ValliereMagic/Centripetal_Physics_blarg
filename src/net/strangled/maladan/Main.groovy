@@ -12,7 +12,7 @@ class Main {
             Documentation.printInstructions()
         } else if (args[0] == '--orbital-radius' || args[0] == '-or') {
             println(OrbitalRadius.execute(formatData(args)))
-        } else if (args[0] == '--centripetal-acceleration' || args[0] == '-cacc') {
+        } else if (args[0] == '--calc-mass-central' || args[0] == '-cMass') {
             println(CentralMass.execute(formatData(args)))
         }
     }

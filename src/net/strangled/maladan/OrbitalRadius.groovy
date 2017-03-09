@@ -5,38 +5,21 @@ package net.strangled.maladan
  */
 class OrbitalRadius {
     static execute(LinkedList<String> info) {
-        def cMass = null
-        def period = null
-        def aC = null
-        def velocity = null
-        def frequency = null
-        for (int i = 0; i < info.size(); i++) {
-            if (info.get(i) == '-cm') {
-                cMass = info.get(i + 1)
-            } else if (info.get(i) == '-p') {
-                period = info.get(i + 1)
-            } else if (info.get(i) == '-cacc') {
-                aC = info.get(i + 1)
-            } else if (info.get(i) == '-v') {
-                velocity = info.get(i + 1)
-            } else if (info.get(i) == '-fr') {
-                frequency = info.get(i + 1)
-            }
-        }
-        if (period && !cMass && !aC && !velocity && !frequency) {
-            return periodOnly(Double.valueOf(period))
-        } else if (period && velocity && !cMass && !aC && !frequency) {
-            return periodAndVelocity(Double.valueOf(period), Double.valueOf(velocity))
-        } else if (velocity && frequency && !period && !cMass && !aC) {
-            return frequencyAndVelocity(Double.valueOf(frequency), Double.valueOf(velocity))
-        } else if (velocity && aC && !period && !frequency && !cMass) {
-            return aCAndVelocity(Double.valueOf(aC), Double.valueOf(velocity))
-        } else if (velocity && !aC && !period && !frequency && !cMass) {
-            return velocityOnly(Double.valueOf(velocity))
-        } else if (velocity && !aC && !period && !frequency && cMass) {
-            return velocityAndCentralMass(Double.valueOf(velocity), Double.valueOf(cMass))
-        } else if (!velocity && !aC && period && !frequency && cMass) {
-            return periodAndCentralMass(Double.valueOf(period), Double.valueOf(cMass))
+        Options options = new Options(info)
+        if (options.getPeriod()) {
+            return periodOnly(options.getPeriod())
+        } else if (options.getPeriod() && options.getVelocity()) {
+            return periodAndVelocity(options.getPeriod(), options.getVelocity())
+        } else if (options.getVelocity() && options.getFrequency()) {
+            return frequencyAndVelocity(options.getFrequency(), options.getVelocity())
+        } else if (options.getVelocity() && options.getaC()) {
+            return aCAndVelocity(options.getaC(), options.getVelocity())
+        } else if (options.getVelocity()) {
+            return velocityOnly(options.getVelocity())
+        } else if (options.getVelocity() && options.getcMass()) {
+            return velocityAndCentralMass(options.getVelocity(), options.getcMass())
+        } else if (options.getPeriod() && options.getcMass()) {
+            return periodAndCentralMass(options.getPeriod(), options.getcMass())
         }
         else {
             return "Either not enough data supplied, or parameters not supported."
