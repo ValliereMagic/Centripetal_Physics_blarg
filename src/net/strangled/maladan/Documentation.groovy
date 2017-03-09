@@ -28,6 +28,10 @@ class Documentation {
                 "       \n" +
                 "=====================================================================================\n" +
                 "   To calculate the mass of an object being orbited, use --calc-mass-central or -cMass \n" +
-                "       \n")
+                "       To specify velocity use -v\n" +
+                "       To specify orbital radius use -or\n" +
+                "       To specify period use -p\n" +
+                "       To specify frequency use -fr\n" +
+                "       To specify centripetal acceleration use -cacc\n")
     }
 }
