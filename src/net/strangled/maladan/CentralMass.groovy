@@ -6,13 +6,13 @@ package net.strangled.maladan
 class CentralMass {
     static execute(LinkedList<String> info) {
         Options options = new Options(info)
-        if (options.getVelocity() && options.getOrbitalRadius()) {
+        if (options.getVelocity() && options.getOrbitalRadius() && !options.getFrequency() && !options.getaC() && !options.getPeriod() && !options.getcMass()) {
             return velocityAndRadius(options.getVelocity(), options.getOrbitalRadius())
-        } else if (options.getPeriod() && options.getOrbitalRadius()) {
+        } else if (!options.getVelocity() && options.getOrbitalRadius() && !options.getFrequency() && !options.getaC() && options.getPeriod() && !options.getcMass()) {
             return periodAndRadius(options.getPeriod(), options.getOrbitalRadius())
-        } else if (options.getFrequency() && options.getOrbitalRadius()) {
+        } else if (!options.getVelocity() && options.getOrbitalRadius() && options.getFrequency() && !options.getaC() && !options.getPeriod() && !options.getcMass()) {
             return frequencyAndRadius(options.getFrequency(), options.getOrbitalRadius())
-        } else if (options.getaC() && options.getOrbitalRadius()) {
+        } else if (!options.getVelocity() && options.getOrbitalRadius() && !options.getFrequency() && options.getaC() && !options.getPeriod() && !options.getcMass()) {
             return aCAndRadius(options.getaC(), options.getOrbitalRadius())
         } else {
             return "Either not enough data supplied, or parameters not supported."
