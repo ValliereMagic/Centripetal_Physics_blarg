@@ -4,44 +4,31 @@ package net.strangled.maladan
  * MaladaN(R)
  */
 class OrbitalRadius {
-    static gravityConstant = 6.67 * 10**-11
-    static massOfEarth = 5.96 * 10**24
-
     static execute(LinkedList<String> info) {
-        def mass = null
-        def period = null
-        def aC = null
-        def velocity = null
-        def frequency = null
-        for (int i = 0; i < info.size(); i++) {
-            if (info.get(i) == '-m') {
-                mass = info.get(i + 1)
-            } else if (info.get(i) == '-p') {
-                period = info.get(i + 1)
-            } else if (info.get(i) == '-cacc') {
-                aC = info.get(i + 1)
-            } else if (info.get(i) == '-v') {
-                velocity = info.get(i + 1)
-            } else if (info.get(i) == '-fr') {
-                frequency = info.get(i + 1)
-            }
+        Options options = new Options(info)
+        if (options.getPeriod()) {
+            return periodOnly(options.getPeriod())
+        } else if (options.getPeriod() && options.getVelocity()) {
+            return periodAndVelocity(options.getPeriod(), options.getVelocity())
+        } else if (options.getVelocity() && options.getFrequency()) {
+            return frequencyAndVelocity(options.getFrequency(), options.getVelocity())
+        } else if (options.getVelocity() && options.getaC()) {
+            return aCAndVelocity(options.getaC(), options.getVelocity())
+        } else if (options.getVelocity()) {
+            return velocityOnly(options.getVelocity())
+        } else if (options.getVelocity() && options.getcMass()) {
+            return velocityAndCentralMass(options.getVelocity(), options.getcMass())
+        } else if (options.getPeriod() && options.getcMass()) {
+            return periodAndCentralMass(options.getPeriod(), options.getcMass())
         }
-        if (period && !mass && !aC && !velocity && !frequency) {
-            return periodOnly(Double.valueOf(period))
-        } else if (period && velocity && !mass && !aC && !frequency) {
-            return periodAndVelocity(Double.valueOf(period), Double.valueOf(velocity))
-        } else if (velocity && frequency && !period && !mass && !aC) {
-            return frequencyAndVelocity(Double.valueOf(frequency), Double.valueOf(velocity))
-        } else if (velocity && aC && !period && !frequency && !mass) {
-            aCAndVelocity(Double.valueOf(aC), Double.valueOf(velocity))
-        } else if (velocity && !aC && !period && !frequency && !mass) {
-            velocityOnly(Double.valueOf(velocity))
+        else {
+            return "Either not enough data supplied, or parameters not supported."
         }
     }
 
     static periodOnly(double period) {
         earthAssumption()
-        return answerFormatter(Math.cbrt((gravityConstant * massOfEarth * ((period)**2) / (4 * (Math.pow(Math.PI, 2))))))
+        return answerFormatter(Math.cbrt((Main.gravityConstant * Main.cMassOfEarth * ((period)**2) / (4 * (Math.pow(Math.PI, 2))))))
     }
     static periodAndVelocity(double period, double velocity) {
         return answerFormatter(velocity * period) / (2 * (Math.PI))
@@ -54,7 +41,13 @@ class OrbitalRadius {
     }
     static velocityOnly(double velocity) {
         earthAssumption()
-        return answerFormatter(Math.sqrt((gravityConstant * massOfEarth) / (velocity)**2))
+        return answerFormatter(Math.sqrt((Main.gravityConstant * Main.cMassOfEarth) / (velocity)**2))
+    }
+    static velocityAndCentralMass(double velocity, double cMass) {
+        return answerFormatter(Math.sqrt((Main.gravityConstant * cMass) / (velocity)**2))
+    }
+    static periodAndCentralMass(double period, double cMass) {
+        return answerFormatter(Math.cbrt((Main.gravityConstant * cMass * ((period)**2) / (4 * (Math.pow(Math.PI, 2))))))
     }
 
     static answerFormatter(double answer) {
