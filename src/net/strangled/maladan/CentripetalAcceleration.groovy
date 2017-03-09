@@ -11,6 +11,8 @@ class CentripetalAcceleration {
                 velocityAndRadius(options.getVelocity(), options.getOrbitalRadius())
             } else if (options.getForceGravity() && options.getorMass()) {
                 massAndForceGravity(options.getorMass(), options.getForceGravity())
+            } else if (options.getOrbitalRadius()) {
+                radiusOnly(options.getOrbitalRadius())
             }
         }
     }
@@ -21,6 +23,11 @@ class CentripetalAcceleration {
 
     static massAndForceGravity(double mass, double forceGravity) {
         return answerFormatter(forceGravity / mass)
+    }
+
+    static radiusOnly(double radius) {
+        Main.earthAssumption()
+        return answerFormatter((Main.gravityConstant * Main.cMassOfEarth) / radius)
     }
 
     static answerFormatter(double answer) {

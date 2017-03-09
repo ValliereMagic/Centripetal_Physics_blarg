@@ -25,6 +25,8 @@ class Documentation {
                 "       To specify velocity use -v\n" +
                 "================================================================================\n" +
                 "   To calculate centripetal acceleration use --centripetal-acceleration or -cacc \n" +
+                "   Note: when only radius is used, the mass of earth will be assumed for the central\n" +
+                "   object's mass.\n" +
                 "       To specify the orbiting object's mass use -orm \n" +
                 "       To specify the force of gravity use -fG\n" +
                 "       To specify the orbital radius use -or\n" +
