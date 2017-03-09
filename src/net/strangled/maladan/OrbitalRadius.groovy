@@ -28,7 +28,7 @@ class OrbitalRadius {
     }
 
     static periodOnly(double period) {
-        earthAssumption()
+        Main.earthAssumption()
         return answerFormatter(Math.cbrt((Main.gravityConstant * Main.cMassOfEarth * ((period)**2) / (4 * (Math.pow(Math.PI, 2))))))
     }
     static periodAndVelocity(double period, double velocity) {
@@ -41,7 +41,7 @@ class OrbitalRadius {
         return answerFormatter((velocity**2 / aC))
     }
     static velocityOnly(double velocity) {
-        earthAssumption()
+        Main.earthAssumption()
         return answerFormatter(Math.sqrt((Main.gravityConstant * Main.cMassOfEarth) / (velocity)**2))
     }
     static velocityAndCentralMass(double velocity, double cMass) {
@@ -53,8 +53,5 @@ class OrbitalRadius {
 
     static answerFormatter(double answer) {
         return "The orbital radius is: " + answer + " meters."
-    }
-    static earthAssumption() {
-        println('Assuming earth as object being orbited')
     }
 }

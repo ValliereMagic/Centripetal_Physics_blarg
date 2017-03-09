@@ -25,4 +25,8 @@ class Main {
         data.remove(0)
         return data
     }
+
+    static earthAssumption() {
+        println('Assuming earth as object being orbited')
+    }
 }
