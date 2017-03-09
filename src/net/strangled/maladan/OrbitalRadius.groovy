@@ -31,7 +31,7 @@ class OrbitalRadius {
         return answerFormatter(Math.cbrt((Main.gravityConstant * Main.cMassOfEarth * ((period)**2) / (4 * (Math.pow(Math.PI, 2))))))
     }
     static periodAndVelocity(double period, double velocity) {
-        return answerFormatter(velocity * period) / (2 * (Math.PI))
+        return answerFormatter((velocity * period) / (2 * (Math.PI)))
     }
     static frequencyAndVelocity(double frequency, double velocity) {
         return answerFormatter(velocity * (1 / frequency) / (2 * (Math.PI)))
