@@ -6,19 +6,19 @@ package net.strangled.maladan
 class OrbitalRadius {
     static execute(LinkedList<String> info) {
         Options options = new Options(info)
-        if (options.getPeriod()) {
+        if (options.getPeriod() && !options.getVelocity() && !options.getFrequency() && !options.getaC() && !options.getcMass() && !options.getOrbitalRadius()) {
             return periodOnly(options.getPeriod())
-        } else if (options.getPeriod() && options.getVelocity()) {
+        } else if (options.getPeriod() && options.getVelocity() && !options.getFrequency() && !options.getaC() && !options.getcMass() && !options.getOrbitalRadius()) {
             return periodAndVelocity(options.getPeriod(), options.getVelocity())
-        } else if (options.getVelocity() && options.getFrequency()) {
+        } else if (!options.getPeriod() && options.getVelocity() && options.getFrequency() && !options.getaC() && !options.getcMass() && !options.getOrbitalRadius()) {
             return frequencyAndVelocity(options.getFrequency(), options.getVelocity())
-        } else if (options.getVelocity() && options.getaC()) {
+        } else if (!options.getPeriod() && options.getVelocity() && !options.getFrequency() && options.getaC() && !options.getcMass() && !options.getOrbitalRadius()) {
             return aCAndVelocity(options.getaC(), options.getVelocity())
-        } else if (options.getVelocity()) {
+        } else if (!options.getPeriod() && options.getVelocity() && !options.getFrequency() && !options.getaC() && !options.getcMass() && !options.getOrbitalRadius()) {
             return velocityOnly(options.getVelocity())
-        } else if (options.getVelocity() && options.getcMass()) {
+        } else if (!options.getPeriod() && options.getVelocity() && !options.getFrequency() && !options.getaC() && options.getcMass() && !options.getOrbitalRadius()) {
             return velocityAndCentralMass(options.getVelocity(), options.getcMass())
-        } else if (options.getPeriod() && options.getcMass()) {
+        } else if (options.getPeriod() && !options.getVelocity() && !options.getFrequency() && !options.getaC() && options.getcMass() && !options.getOrbitalRadius()) {
             return periodAndCentralMass(options.getPeriod(), options.getcMass())
         }
         else {
