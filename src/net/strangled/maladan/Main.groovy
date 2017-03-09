@@ -6,6 +6,7 @@ package net.strangled.maladan
 class Main {
     static gravityConstant = 6.67 * 10**-11
     static cMassOfEarth = 5.96 * 10**24
+    static errorMessage = "Either incorrect number of arguments, or parameters not supported."
 
     static void main(String[] args) {
         if (args[0] == '--help' || args[0] == '-h') {
@@ -14,6 +15,8 @@ class Main {
             println(OrbitalRadius.execute(formatData(args)))
         } else if (args[0] == '--calc-mass-central' || args[0] == '-cMass') {
             println(CentralMass.execute(formatData(args)))
+        } else if (args[0] == '--centripetal-acceleration' || args[0] == '-cacc') {
+            println(CentripetalAcceleration.execute(formatData(args)))
         }
     }
 
