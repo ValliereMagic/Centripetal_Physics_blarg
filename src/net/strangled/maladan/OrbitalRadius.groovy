@@ -21,6 +21,8 @@ class OrbitalRadius {
                 return velocityAndCentralMass(options.getVelocity(), options.getcMass())
             } else if (options.getPeriod() && options.getcMass()) {
                 return periodAndCentralMass(options.getPeriod(), options.getcMass())
+            } else {
+                return Main.errorMessage
             }
         } else {
             return Main.errorMessage
