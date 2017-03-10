@@ -48,7 +48,7 @@ class Options {
         return cMass
     }
 
-    double getorMass() {
+    double getOrMass() {
         return orMass
     }
 

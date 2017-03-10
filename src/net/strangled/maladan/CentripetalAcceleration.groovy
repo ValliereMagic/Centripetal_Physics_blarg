@@ -9,8 +9,8 @@ class CentripetalAcceleration {
         if (options.getSize() <= 2) {
             if (options.getVelocity() && options.getOrbitalRadius()) {
                 velocityAndRadius(options.getVelocity(), options.getOrbitalRadius())
-            } else if (options.getForceGravity() && options.getorMass()) {
-                massAndForceGravity(options.getorMass(), options.getForceGravity())
+            } else if (options.getForceGravity() && options.getOrMass()) {
+                massAndForceGravity(options.getOrMass(), options.getForceGravity())
             } else if (options.getOrbitalRadius()) {
                 radiusOnly(options.getOrbitalRadius())
             }
