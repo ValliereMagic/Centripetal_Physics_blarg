@@ -13,7 +13,11 @@ class CentripetalAcceleration {
                 massAndForceGravity(options.getOrMass(), options.getForceGravity())
             } else if (options.getOrbitalRadius()) {
                 radiusOnly(options.getOrbitalRadius())
+            } else {
+                return Main.errorMessage
             }
+        } else {
+            return Main.errorMessage
         }
     }
 
