@@ -6,7 +6,7 @@ package net.strangled.maladan
 class CentralMass {
     static execute(LinkedList<String> info) {
         Options options = new Options(info)
-        if (options.getSize() <= 2) {
+        if (options.getSize() == 2) {
             if (options.getVelocity() && options.getOrbitalRadius()) {
                 return velocityAndRadius(options.getVelocity(), options.getOrbitalRadius())
             } else if (options.getOrbitalRadius() && options.getPeriod()) {
