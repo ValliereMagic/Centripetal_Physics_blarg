@@ -35,7 +35,7 @@ class CentripetalAcceleration {
     //Logic under review
     static radiusOnly(double radius) {
         Main.earthAssumption()
-        return answerFormatter((Main.gravityConstant * Main.cMassOfEarth) / radius)
+        return answerFormatter((Main.gravityConstant * Main.cMassOfEarth) / (radius**2))
     }
 
     static radiusAndPeriod(double radius, double period) {
