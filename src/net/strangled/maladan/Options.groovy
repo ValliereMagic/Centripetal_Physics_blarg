@@ -11,7 +11,7 @@ class Options {
     private double velocity
     private double frequency
     private double orbitalRadius
-    private double forceGravity
+    private double forceCentripetal
     private int size
 
     Options(LinkedList<String> info) {
@@ -37,8 +37,8 @@ class Options {
             } else if (info.get(i) == '-or') {
                 orbitalRadius = Double.valueOf(info.get(i + 1))
                 size++
-            } else if (info.get(i) == '-fG') {
-                forceGravity = Double.valueOf(info.get(i + 1))
+            } else if (info.get(i) == '-fC') {
+                forceCentripetal = Double.valueOf(info.get(i + 1))
                 size++
             }
         }
@@ -72,8 +72,8 @@ class Options {
         return orbitalRadius
     }
 
-    double getForceGravity() {
-        return forceGravity
+    double getForceCentripetal() {
+        return forceCentripetal
     }
 
     int getSize() {

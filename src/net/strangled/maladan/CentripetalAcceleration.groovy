@@ -9,8 +9,8 @@ class CentripetalAcceleration {
         if (options.getSize() == 2) {
             if (options.getVelocity() && options.getOrbitalRadius()) {
                 velocityAndRadius(options.getVelocity(), options.getOrbitalRadius())
-            } else if (options.getForceGravity() && options.getOrMass()) {
-                massAndForceGravity(options.getOrMass(), options.getForceGravity())
+            } else if (options.getForceCentripetal() && options.getOrMass()) {
+                massAndForceCentripetal(options.getOrMass(), options.getForceCentripetal())
             } else if (options.getOrbitalRadius() && options.getPeriod()) {
                 radiusAndPeriod(options.getOrbitalRadius(), options.getPeriod())
             } else {
@@ -19,6 +19,8 @@ class CentripetalAcceleration {
         } else if (options.getSize() == 1) {
             if (options.getOrbitalRadius()) {
                 radiusOnly(options.getOrbitalRadius())
+            } else {
+                return Main.errorMessage
             }
         } else {
             return Main.errorMessage
@@ -28,11 +30,11 @@ class CentripetalAcceleration {
     static velocityAndRadius(double velocity, double radius) {
         return answerFormatter((velocity**2) / radius)
     }
-    //Logic under review
-    static massAndForceGravity(double mass, double forceGravity) {
-        return answerFormatter(forceGravity / mass)
+
+    static massAndForceCentripetal(double mass, double forceCentripetal) {
+        return answerFormatter(forceCentripetal / mass)
     }
-    //Logic under review
+
     static radiusOnly(double radius) {
         Main.earthAssumption()
         return answerFormatter((Main.gravityConstant * Main.cMassOfEarth) / (radius**2))
