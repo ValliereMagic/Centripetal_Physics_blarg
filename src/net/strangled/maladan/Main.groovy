@@ -9,14 +9,18 @@ class Main {
     static errorMessage = "Either incorrect number of arguments, or parameters not supported."
 
     static void main(String[] args) {
-        if (args[0] == '--help' || args[0] == '-h') {
-            Documentation.printInstructions()
-        } else if (args[0] == '--orbital-radius' || args[0] == '-or') {
-            println(OrbitalRadius.execute(formatData(args)))
-        } else if (args[0] == '--calc-mass-central' || args[0] == '-cMass') {
-            println(CentralMass.execute(formatData(args)))
-        } else if (args[0] == '--centripetal-acceleration' || args[0] == '-cacc') {
-            println(CentripetalAcceleration.execute(formatData(args)))
+        if (args) {
+            if (args[0] == '--help' || args[0] == '-h') {
+                Documentation.printInstructions()
+            } else if (args[0] == '--orbital-radius' || args[0] == '-or') {
+                println(OrbitalRadius.execute(formatData(args)))
+            } else if (args[0] == '--calc-mass-central' || args[0] == '-cMass') {
+                println(CentralMass.execute(formatData(args)))
+            } else if (args[0] == '--centripetal-acceleration' || args[0] == '-cacc') {
+                println(CentripetalAcceleration.execute(formatData(args)))
+            }
+        } else {
+            println(errorMessage)
         }
     }
 
