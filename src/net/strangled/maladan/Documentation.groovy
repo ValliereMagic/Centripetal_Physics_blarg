@@ -30,7 +30,7 @@ class Documentation {
                 "       To specify the orbiting object's mass use -orm \n" +
                 "       To specify the centripetal force use -fC\n" +
                 "       To specify the orbital radius use -or\n" +
-                "       To specify frequency use -fr" +
+                "       To specify frequency use -fr\n" +
                 "=====================================================================================\n" +
                 "   To calculate the mass of an object being orbited, use --calc-mass-central or -cMass \n" +
                 "       To specify velocity use -v\n" +
