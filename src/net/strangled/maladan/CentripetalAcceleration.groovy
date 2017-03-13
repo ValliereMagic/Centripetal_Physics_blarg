@@ -13,6 +13,8 @@ class CentripetalAcceleration {
                 massAndForceCentripetal(options.getOrMass(), options.getForceCentripetal())
             } else if (options.getOrbitalRadius() && options.getPeriod()) {
                 radiusAndPeriod(options.getOrbitalRadius(), options.getPeriod())
+            } else if (options.getFrequency() && options.getOrbitalRadius()) {
+                frequencyAndRadius(options.getFrequency(), options.getOrbitalRadius())
             } else {
                 return Main.errorMessage
             }
@@ -42,6 +44,10 @@ class CentripetalAcceleration {
 
     static radiusAndPeriod(double radius, double period) {
         return answerFormatter((4 * (Math.PI)**2 * radius) / (period)**2)
+    }
+
+    static frequencyAndRadius(double frequency, double radius) {
+        return answerFormatter((4 * (Math.PI)**2 * (radius)**2 * (frequency)**2) / (radius))
     }
 
     static answerFormatter(double answer) {
