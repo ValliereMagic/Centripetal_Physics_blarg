@@ -4,8 +4,8 @@ package net.strangled.maladan
  * MaladaN (R)
  */
 class Main {
-    static gravityConstant = 6.67 * 10**-11
-    static cMassOfEarth = 5.96 * 10**24
+    static gravityConstant = 6.67e-11
+    static cMassOfEarth = 5.96e24
     static errorMessage = "Either incorrect number of arguments, or parameters not supported."
 
     static void main(String[] args) {
